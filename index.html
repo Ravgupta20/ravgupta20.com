@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ravi's Portfolio</title>
+    </head>
+    <body>
+        <h1>How it was made</h1>
+	<ol>
+		<li>Created EC2 instance on AWS with security group configured to allow inbound traffic through ssh and http.  The minimun required to setup the ec2 instance and test that the apache server is working.</li>
+		<li>Access EC2 instance via the EC2 instance connect.  I could have connected via putty, but quite honestly the EC2 instance connect via the console is incredibily easy.</li>
+		<li>Installed apache server on the ec2 instance.</li>
+        <li>Installed git on the ec2 instance.</li>
+        <li>Generated a ssh key pair and added the public key to the ec2 instance.</li>
+        <li>Cloned the repository from github to the ec2 instance.</li>
+	</ol>
+    <h1>Why apache over nginx?</h1>
+    <p>I worked on a LAMP stack project in the past and I have spun up many EC2 instances with apache in the past and so I was very
+        familar with it. So much so that I wrote a little guide for myself after repeatedly doing it for practice.  Since I already
+        had the guide, I decided to use it to get it up and running quickly.
+    </p>
+    <h1>SSL Labs Report:</h1>
+    <img src="ssl_labs_report.png" alt="SSL Labs Report">
+    </body>
+</html>
