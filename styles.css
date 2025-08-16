@@ -27,7 +27,7 @@
     background-clip: text;
 }
 
-/* Hero Section Background */
+/* Hero Section Background - Fallback */
 .hero-bg {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }

@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Initialize fade-in elements
+    // Initialize fade-in elements (excluding hero section)
     document.querySelectorAll('.fade-in').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -48,32 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-    // Dynamic typing effect for hero subtitle
-    function typeWriter(element, text, speed = 80) {
-        let i = 0;
-        element.innerHTML = '';
-        
-        function type() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
-        }
-        
-        type();
-    }
-
-    // Initialize typing effect after page load
-    window.addEventListener('load', () => {
-        const heroSubtitle = document.querySelector('.hero-bg h2');
-        if (heroSubtitle) {
-            const originalText = heroSubtitle.innerText;
-            setTimeout(() => {
-                typeWriter(heroSubtitle, originalText, 80);
-            }, 1200);
-        }
-    });
+    // Simplified hero section - no complex animations
+    console.log('Hero section should be visible immediately');
 
     // Add parallax effect to hero section
     let ticking = false;
