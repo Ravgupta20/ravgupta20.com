@@ -118,22 +118,46 @@
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - WWII Poster Style */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: transparent; /* No background */
+    border: none; /* No border */
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    border-radius: 4px;
+    background: repeating-linear-gradient(
+        45deg,
+        #DC2626 0px,
+        #DC2626 8px,
+        #1E40AF 8px,
+        #1E40AF 16px,
+        #F59E0B 16px,
+        #F59E0B 24px
+    );
+    border: 2px solid #1E40AF; /* Navy border */
+    border-radius: 0; /* Angular, not rounded */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #5a6fd8, #6a4190);
+    background: repeating-linear-gradient(
+        45deg,
+        #B91C1C 0px,
+        #B91C1C 8px,
+        #1E3A8A 8px,
+        #1E3A8A 16px,
+        #D97706 16px,
+        #D97706 24px
+    );
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thick;
+    scrollbar-color: #DC2626 #FEF3C7;
 }
 
 /* Focus States for Accessibility */
