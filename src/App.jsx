@@ -229,8 +229,8 @@ function App() {
             <div className="reel-frame">
               <div className="reel-media" />
               <div className="reel-overlay">
-                <h2 className="reel-title">From signal to story.</h2>
-                <p className="reel-body">A calm, cinematic view of outcomes that matter.</p>
+                <h2 className="reel-title">Education</h2>
+                <p className="reel-body">University at Albany · SUNY — B.S. in Computer Science.</p>
                 <div className="reel-carousel">
                   <div className="reel-slide">
                     <div className="reel-stat">{REEL_SLIDES[reelIndex].value}</div>
