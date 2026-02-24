@@ -135,9 +135,9 @@
   overflow: hidden;
   border: 1px solid rgba(248, 244, 238, 0.15);
   box-shadow: 0 40px 120px rgba(0, 0, 0, 0.45);
-  --shrink: max(0, calc(var(--reel-progress) - 0.9));
-  transform: translateY(calc(var(--shrink) * 210px))
-    scale(calc(1 + (var(--reel-progress) * 0.35) - (var(--shrink) * 2.6)));
+  --shrink: max(0, calc(var(--reel-progress) - 0.95));
+  transform: translateY(calc(var(--shrink) * 240px))
+    scale(calc(1 + (var(--reel-progress) * 0.35) - (var(--shrink) * 2.9)));
   transition: transform 0.1s ease-out;
 }
 
