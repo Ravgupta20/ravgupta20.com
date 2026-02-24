@@ -177,6 +177,7 @@
 }
 
 .reel-slide {
+  position: relative;
   border-radius: 20px;
   border: 1px solid rgba(248, 244, 238, 0.18);
   background: linear-gradient(
@@ -193,9 +194,12 @@
 }
 
 .reel-logo {
-  width: 58px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 62px;
   height: auto;
-  margin-bottom: 14px;
+  margin: 0;
   padding: 6px;
   border-radius: 999px;
   background: rgba(248, 244, 238, 0.08);
