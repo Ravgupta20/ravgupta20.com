@@ -49,7 +49,9 @@ function App() {
       const start = reelSection.offsetTop;
       const end = start + reelSection.offsetHeight - viewHeight;
       const scrollY = window.scrollY || window.pageYOffset || 0;
-      const progress = Math.min(Math.max((scrollY - start) / Math.max(end - start, 1), 0), 1);
+      const rawProgress = Math.min(Math.max((scrollY - start) / Math.max(end - start, 1), 0), 1);
+      const lingerRatio = 0.55;
+      const progress = Math.min(rawProgress / lingerRatio, 1);
       reelSection.style.setProperty("--reel-progress", progress.toFixed(3));
     };
 
@@ -194,6 +196,7 @@ function App() {
         </section>
 
         <section id="reel" ref={reelSectionRef} className="reel-section">
+          <div className="reel-fade" />
           <div className="reel-sticky">
             <div className="reel-frame">
               <div className="reel-media" />
