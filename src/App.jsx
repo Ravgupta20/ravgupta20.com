@@ -210,7 +210,7 @@ function App() {
           </div>
         </section>
 
-        <section id="manifesto" className="relative overflow-hidden bg-ink py-20 text-haze">
+        <section id="manifesto" className="relative overflow-hidden afterglow py-20 text-haze">
           <div className="absolute inset-0 spotlight -z-10 opacity-60" />
           <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-[1fr_1.1fr]">
             <div className="space-y-4">
@@ -465,16 +465,16 @@ function App() {
           </div>
         </section>
 
-        <section id="education" className="bg-ink py-20 text-haze">
+        <section id="education" className="bg-haze py-20 text-ink">
           <div className="mx-auto max-w-6xl px-6">
             <div className="space-y-3">
-              <p className="section-kicker-light">Education</p>
-              <h2 className="section-title-light">Foundation built for scale.</h2>
+              <p className="section-kicker">Education</p>
+              <h2 className="section-title">Foundation built for scale.</h2>
             </div>
-            <div className="mt-8 card-dark p-8">
-              <h3 className="text-2xl font-display text-haze">University at Albany · SUNY</h3>
-              <p className="text-sm uppercase tracking-[0.3em] text-haze/60">B.S. in Computer Science</p>
-              <p className="mt-4 text-haze/70">Rigorous training in software engineering and systems thinking.</p>
+            <div className="mt-8 card-outline p-8">
+              <h3 className="text-2xl font-display text-ink">University at Albany · SUNY</h3>
+              <p className="text-sm uppercase tracking-[0.3em] text-slate">B.S. in Computer Science</p>
+              <p className="mt-4 text-slate">Rigorous training in software engineering and systems thinking.</p>
             </div>
           </div>
         </section>
