@@ -45,10 +45,11 @@ function App() {
     let frame = 0;
     const updateReel = () => {
       frame = 0;
-      const rect = reelSection.getBoundingClientRect();
       const viewHeight = window.innerHeight || 1;
-      const totalScroll = Math.max(rect.height - viewHeight, 1);
-      const progress = Math.min(Math.max((viewHeight - rect.top) / totalScroll, 0), 1);
+      const start = reelSection.offsetTop;
+      const end = start + reelSection.offsetHeight - viewHeight;
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+      const progress = Math.min(Math.max((scrollY - start) / Math.max(end - start, 1), 0), 1);
       reelSection.style.setProperty("--reel-progress", progress.toFixed(3));
     };
 
