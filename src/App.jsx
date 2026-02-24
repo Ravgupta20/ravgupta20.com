@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
+  const reelSectionRef = useRef(null);
 
   const navItems = [
     { id: "home", label: "Home" },
+    { id: "reel", label: "Reel" },
     { id: "manifesto", label: "Manifesto" },
     { id: "impact", label: "Impact" },
     { id: "work", label: "Work" },
@@ -32,6 +34,41 @@ function App() {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const reelSection = reelSectionRef.current;
+    if (!reelSection) {
+      return undefined;
+    }
+
+    let frame = 0;
+    const updateReel = () => {
+      frame = 0;
+      const rect = reelSection.getBoundingClientRect();
+      const viewHeight = window.innerHeight || 1;
+      const scrollProgress = 1 - Math.min(Math.max(rect.bottom / (rect.height + viewHeight), 0), 1);
+      reelSection.style.setProperty("--reel-progress", scrollProgress.toFixed(3));
+    };
+
+    const onScroll = () => {
+      if (frame) {
+        return;
+      }
+      frame = window.requestAnimationFrame(updateReel);
+    };
+
+    updateReel();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", updateReel);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", updateReel);
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+      }
+    };
   }, []);
 
   const handleNavClick = () => {
@@ -104,55 +141,48 @@ function App() {
           <div className="absolute inset-0 -z-10 bg-ember-glow" />
           <div className="absolute inset-0 -z-20 bg-gold-glow" />
           <div className="absolute inset-0 -z-30 diagonal-grid" />
-          <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-6 py-20 md:py-28">
+          <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-6 py-24 md:py-32">
             <div className="eyebrow">Full-stack engineer · Community builder</div>
-            <div className="grid items-center gap-12 md:grid-cols-[1.2fr_0.8fr]">
-              <div className="space-y-8">
-                <h1 className="font-display text-5xl tracking-tight text-ink md:text-7xl">
-                  I build cinematic product experiences that earn trust, ship fast, and scale.
-                </h1>
-                <p className="text-lg text-slate md:text-xl">
-                  I help teams turn complex constraints into calm, confident software. From AI-powered platforms to civic tech
-                  communities, I design systems that feel human and perform under pressure.
-                </p>
-                <div className="flex flex-wrap items-center gap-4">
-                  <a
-                    href="#work"
-                    className="rounded-full bg-ember px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white shadow-ember transition hover:-translate-y-1"
-                  >
-                    View the work
-                  </a>
-                  <a
-                    href="#manifesto"
-                    className="rounded-full border border-ink/15 px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-ink transition hover:border-ember hover:text-ember"
-                  >
-                    Read the manifesto
-                  </a>
-                </div>
-              </div>
-              <div className="cutout-panel grain relative overflow-hidden p-8">
-                <div className="space-y-6">
-                  <div className="section-kicker">Signal</div>
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between border-b border-ink/10 pb-3">
-                      <span className="text-sm uppercase tracking-[0.3em] text-slate">Location</span>
-                      <span className="text-lg font-semibold">Rockville, MD</span>
-                    </div>
-                    <div className="flex items-center justify-between border-b border-ink/10 pb-3">
-                      <span className="text-sm uppercase tracking-[0.3em] text-slate">Focus</span>
-                      <span className="text-lg font-semibold">AI + Product Systems</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm uppercase tracking-[0.3em] text-slate">Availability</span>
-                      <span className="text-lg font-semibold text-ember">Open to 2026 roles</span>
-                    </div>
-                  </div>
-                  <div className="rounded-2xl bg-ink px-4 py-3 text-sm uppercase tracking-[0.35em] text-white">
-                    Trusted by teams across gov, startups, and civic innovation
-                  </div>
-                </div>
+            <div className="space-y-6">
+              <h1 className="font-display text-5xl tracking-tight text-ink md:text-7xl">
+                Ravi Gupta.
+                <span className="block text-slate">Builds momentum.</span>
+              </h1>
+              <p className="max-w-2xl text-base uppercase tracking-[0.35em] text-slate">
+                Product engineering · AI systems · Civic tech
+              </p>
+              <div className="flex flex-wrap items-center gap-4">
+                <a
+                  href="#reel"
+                  className="rounded-full bg-ember px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white shadow-ember transition hover:-translate-y-1"
+                >
+                  Enter the reel
+                </a>
+                <a
+                  href="#contact"
+                  className="rounded-full border border-ink/15 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-ink transition hover:border-ember hover:text-ember"
+                >
+                  Let’s talk
+                </a>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section id="reel" ref={reelSectionRef} className="reel-section">
+          <div className="reel-sticky">
+            <div className="reel-frame">
+              <div className="reel-media" />
+              <div className="reel-overlay">
+                <p className="reel-kicker">Scrolling is a zoom lens</p>
+                <h2 className="reel-title">From signal to story.</h2>
+                <p className="reel-body">
+                  Each scroll step pulls you deeper into the systems I build: calm interfaces, decisive infrastructure, and
+                  communities that feel held.
+                </p>
+              </div>
+            </div>
+            <div className="reel-hint">Scroll to zoom in</div>
           </div>
         </section>
 
