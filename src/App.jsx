@@ -40,7 +40,7 @@ function App() {
   const navItems = [
     { id: "home", label: "Home" },
     { id: "reel", label: "Reel" },
-    { id: "manifesto", label: "Manifesto" },
+    { id: "manifesto", label: "Quote" },
     { id: "work", label: "Work" },
     { id: "experience", label: "Experience" },
     { id: "education", label: "Education" },
@@ -269,14 +269,12 @@ function App() {
           <div className="absolute inset-0 spotlight -z-10 opacity-60" />
           <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-[1fr_1.1fr]">
             <div className="space-y-4">
-              <p className="section-kicker-light">Manifesto</p>
-              <h2 className="section-title-light">Momentum without noise.</h2>
+              <p className="section-kicker-light">Guiding quote</p>
+              <h2 className="section-title-light">Pride is not the opposite of shame, but its source.</h2>
             </div>
             <div className="space-y-6 text-lg text-haze/70">
-              <p>
-                I translate ambiguity into calm, high-performing software. Listen deeply, prototype fast, validate early, and
-                ship with operational discipline.
-              </p>
+              <p>"Pride is not the opposite of shame, but its source. True humility is the only antidote to shame."</p>
+              <p className="text-sm uppercase tracking-[0.3em] text-haze/60">— Iroh</p>
             </div>
           </div>
         </section>
