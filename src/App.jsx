@@ -47,8 +47,9 @@ function App() {
       frame = 0;
       const rect = reelSection.getBoundingClientRect();
       const viewHeight = window.innerHeight || 1;
-      const scrollProgress = 1 - Math.min(Math.max(rect.bottom / (rect.height + viewHeight), 0), 1);
-      reelSection.style.setProperty("--reel-progress", scrollProgress.toFixed(3));
+      const totalScroll = Math.max(rect.height - viewHeight, 1);
+      const progress = Math.min(Math.max((viewHeight - rect.top) / totalScroll, 0), 1);
+      reelSection.style.setProperty("--reel-progress", progress.toFixed(3));
     };
 
     const onScroll = () => {
@@ -208,40 +209,32 @@ function App() {
           </div>
         </section>
 
-        <section id="manifesto" className="relative overflow-hidden py-20">
-          <div className="absolute inset-0 spotlight -z-10" />
+        <section id="manifesto" className="relative overflow-hidden bg-ink py-20 text-haze">
+          <div className="absolute inset-0 spotlight -z-10 opacity-60" />
           <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-[1fr_1.1fr]">
             <div className="space-y-4">
-              <p className="section-kicker">Manifesto</p>
-              <h2 className="section-title">Technology should feel like momentum, not friction.</h2>
+              <p className="section-kicker-light">Manifesto</p>
+              <h2 className="section-title-light">Momentum without noise.</h2>
             </div>
-            <div className="space-y-6 text-lg text-slate">
+            <div className="space-y-6 text-lg text-haze/70">
               <p>
-                I specialize in turning high-stakes ambiguity into dependable software. The strategy is simple: listen deeply,
-                prototype fast, validate with real users, and ship with operational rigor.
-              </p>
-              <p>
-                Whether I am mentoring new engineers or designing AI-powered workflows, I build with empathy and precision.
-                The goal is always the same: create software that makes people feel confident and capable.
-              </p>
-              <p>
-                My work blends product engineering, infrastructure, and community leadership because the best products only
-                succeed when the people behind them feel supported.
+                I translate ambiguity into calm, high-performing software. Listen deeply, prototype fast, validate early, and
+                ship with operational discipline.
               </p>
             </div>
           </div>
         </section>
 
-        <section id="impact" className="py-16">
+        <section id="impact" className="bg-ink py-16 text-haze">
           <div className="mx-auto max-w-6xl px-6">
             <div className="flex flex-wrap items-center justify-between gap-6">
               <div>
-                <p className="section-kicker">Impact reel</p>
-                <h2 className="section-title">Signals of scale and reliability.</h2>
+                <p className="section-kicker-light">Impact reel</p>
+                <h2 className="section-title-light">Scale without drama.</h2>
               </div>
               <a
                 href="#contact"
-                className="rounded-full border border-ink/10 bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-slate transition hover:border-ember hover:text-ember"
+                className="rounded-full border border-white/20 bg-white/5 px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-haze/70 transition hover:border-ember hover:text-ember"
               >
                 Build together
               </a>
@@ -250,73 +243,73 @@ function App() {
               {[
                 {
                   value: "50%",
-                  label: "Reduced ATO approval time for federal executives",
+                  label: "Faster federal approvals",
                 },
                 {
                   value: "60%",
-                  label: "Lowered engineering overhead through Go microservices",
+                  label: "Less engineering overhead",
                 },
                 {
                   value: "Thousands",
-                  label: "NIH researchers supported by high-traffic platforms",
+                  label: "Researchers supported",
                 },
               ].map((stat) => (
-                <div key={stat.value} className="card-outline p-6">
+                <div key={stat.value} className="card-dark p-6">
                   <div className="text-4xl font-display text-ember">{stat.value}</div>
-                  <p className="mt-3 text-sm uppercase tracking-[0.25em] text-slate">{stat.label}</p>
+                  <p className="mt-3 text-sm uppercase tracking-[0.25em] text-haze/60">{stat.label}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="work" className="py-20">
+        <section id="work" className="bg-ink py-20 text-haze">
           <div className="mx-auto max-w-6xl px-6">
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div className="space-y-3">
-                <p className="section-kicker">Featured work</p>
-                <h2 className="section-title">Products shipped with care and velocity.</h2>
+                <p className="section-kicker-light">Featured work</p>
+                <h2 className="section-title-light">Products shipped with precision.</h2>
               </div>
-              <span className="text-sm uppercase tracking-[0.3em] text-slate">Selected projects</span>
+              <span className="text-sm uppercase tracking-[0.3em] text-haze/60">Selected projects</span>
             </div>
             <div className="mt-10 grid gap-8 md:grid-cols-2">
               {[
                 {
                   title: "Steward Homes",
-                  desc: "Real estate platform unifying property management, AI insights, and client services.",
-                  tags: ["SvelteKit", "TypeScript", "GCP", "Firebase", "Vertex AI"],
+                  desc: "Property platform with AI insights and modern ops.",
+                  tags: ["SvelteKit", "TypeScript", "Vertex AI"],
                   link: "https://www.steward-homes.com/",
                 },
                 {
                   title: "Support-Devs",
-                  desc: "Learning experience for non-technical professionals with practical, bite-sized lessons.",
-                  tags: ["SvelteKit", "TypeScript", "Firebase", "UX Design"],
+                  desc: "Learning platform for new technologists.",
+                  tags: ["SvelteKit", "Firebase", "UX Design"],
                   link: "https://www.support-devs.com/",
                 },
                 {
                   title: "Strata Application",
-                  desc: "AWS Amplify-hosted web app built for reliable, scalable delivery.",
-                  tags: ["AWS Amplify", "Modern JS", "CI/CD"],
+                  desc: "Cloud-hosted app with resilient delivery.",
+                  tags: ["AWS Amplify", "CI/CD", "Modern JS"],
                   link: "https://strata.cx/",
                 },
                 {
                   title: "Buy It For Lifetime",
-                  desc: "E-commerce platform engineered for durability, logistics, and scale.",
-                  tags: ["JavaScript", "Tailwind", "Express", "PostgreSQL"],
+                  desc: "Commerce platform built for durability.",
+                  tags: ["Express", "PostgreSQL", "Tailwind"],
                   link: "https://buyitforlifetime.com/",
                 },
               ].map((project) => (
-                <article key={project.title} className="card-outline p-8 transition hover:-translate-y-1">
+                <article key={project.title} className="card-dark p-8 transition hover:-translate-y-1">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-2xl font-display text-ink">{project.title}</h3>
+                    <h3 className="text-2xl font-display text-haze">{project.title}</h3>
                     <span className="text-xs uppercase tracking-[0.35em] text-ember">Live</span>
                   </div>
-                  <p className="mt-4 text-slate">{project.desc}</p>
+                  <p className="mt-4 text-haze/70">{project.desc}</p>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full border border-ink/10 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate"
+                        className="pill-dark"
                       >
                         {tag}
                       </span>
@@ -336,43 +329,35 @@ function App() {
           </div>
         </section>
 
-        <section id="expertise" className="relative overflow-hidden py-20">
-          <div className="absolute inset-0 diagonal-grid opacity-60" />
+        <section id="expertise" className="relative overflow-hidden bg-ink py-20 text-haze">
+          <div className="absolute inset-0 diagonal-grid opacity-20" />
           <div className="relative mx-auto max-w-6xl px-6">
             <div className="space-y-3">
-              <p className="section-kicker">Expertise</p>
-              <h2 className="section-title">Capabilities built for modern product teams.</h2>
+              <p className="section-kicker-light">Expertise</p>
+              <h2 className="section-title-light">Capabilities that matter.</h2>
             </div>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <div className="mt-10 grid gap-6 md:grid-cols-2">
               {[
                 {
                   title: "AI + LLM Systems",
-                  items: ["Gemini + Vertex AI", "Conversational UX", "Automation and orchestration"],
+                  items: ["Gemini + Vertex AI", "Conversational UX"],
                 },
                 {
                   title: "Product Engineering",
-                  items: ["React + TypeScript", "Go microservices", "Design systems"],
+                  items: ["React + TypeScript", "Go microservices"],
                 },
                 {
                   title: "Infrastructure",
-                  items: ["AWS + GCP", "IaC with CDK", "Security compliance"],
-                },
-                {
-                  title: "Data Platforms",
-                  items: ["PostgreSQL", "DynamoDB", "Performance tuning"],
+                  items: ["AWS + GCP", "IaC + security"],
                 },
                 {
                   title: "Leadership",
-                  items: ["Cross-functional alignment", "Mentorship", "Executive communication"],
-                },
-                {
-                  title: "Community",
-                  items: ["Meetup organizing", "Volunteer enablement", "Inclusive growth"],
+                  items: ["Cross-functional alignment", "Mentorship"],
                 },
               ].map((capability) => (
-                <div key={capability.title} className="card-outline p-6">
-                  <h3 className="text-xl font-display text-ink">{capability.title}</h3>
-                  <ul className="mt-4 space-y-2 text-sm text-slate">
+                <div key={capability.title} className="card-dark p-6">
+                  <h3 className="text-xl font-display text-haze">{capability.title}</h3>
+                  <ul className="mt-4 space-y-2 text-sm text-haze/70">
                     {capability.items.map((item) => (
                       <li key={item}>• {item}</li>
                     ))}
@@ -383,11 +368,11 @@ function App() {
           </div>
         </section>
 
-        <section id="leadership" className="py-20">
+        <section id="leadership" className="bg-ink py-20 text-haze">
           <div className="mx-auto max-w-6xl px-6">
             <div className="space-y-3">
-              <p className="section-kicker">Leadership</p>
-              <h2 className="section-title">Community is a product too.</h2>
+              <p className="section-kicker-light">Leadership</p>
+              <h2 className="section-title-light">Community is a product too.</h2>
             </div>
             <div className="mt-10 grid gap-8 md:grid-cols-2">
               {[
@@ -395,9 +380,8 @@ function App() {
                   title: "MoCo Code and Coffee",
                   role: "Lead Organizer · July 2025 - Present",
                   points: [
-                    "Run community-driven monthly meetups for developers at every level.",
-                    "Build mentorship pathways and volunteer onboarding playbooks.",
-                    "Sustain an active Discord for peer support and collaboration.",
+                    "Run monthly meetups for developers at every level.",
+                    "Build mentorship pathways and volunteer onboarding.",
                   ],
                 },
                 {
@@ -406,14 +390,13 @@ function App() {
                   points: [
                     "Support grassroots innovators across the DC metro biotech ecosystem.",
                     "Translate community ideas into research-ready programs.",
-                    "Connect diverse stakeholders through inclusive programming.",
                   ],
                 },
               ].map((item) => (
-                <div key={item.title} className="card-outline p-8">
-                  <p className="section-kicker">{item.role}</p>
-                  <h3 className="mt-2 text-2xl font-display text-ink">{item.title}</h3>
-                  <ul className="mt-4 space-y-2 text-sm text-slate">
+                <div key={item.title} className="card-dark p-8">
+                  <p className="section-kicker-light">{item.role}</p>
+                  <h3 className="mt-2 text-2xl font-display text-haze">{item.title}</h3>
+                  <ul className="mt-4 space-y-2 text-sm text-haze/70">
                     {item.points.map((point) => (
                       <li key={point}>• {point}</li>
                     ))}
@@ -424,11 +407,11 @@ function App() {
           </div>
         </section>
 
-        <section id="experience" className="py-20">
+        <section id="experience" className="bg-ink py-20 text-haze">
           <div className="mx-auto max-w-6xl px-6">
             <div className="space-y-3">
-              <p className="section-kicker">Experience</p>
-              <h2 className="section-title">Building momentum across sectors.</h2>
+              <p className="section-kicker-light">Experience</p>
+              <h2 className="section-title-light">Building momentum across sectors.</h2>
             </div>
             <div className="mt-10 grid gap-6">
               {[
@@ -437,9 +420,8 @@ function App() {
                   role: "Full-Stack Engineer",
                   dates: "May 2025 - Present",
                   bullets: [
-                    "Architected AI-powered chatbot solutions with Gemini + Vertex AI Agent Builder.",
-                    "Built a React/TypeScript frontend with Go microservices for rapid iteration.",
-                    "Implemented infrastructure-as-code with AWS CDK and CloudFormation.",
+                    "Architected AI-powered chatbot solutions with Gemini + Vertex AI.",
+                    "Built React/TypeScript frontends with Go microservices.",
                   ],
                 },
                 {
@@ -447,9 +429,8 @@ function App() {
                   role: "Technical Lead",
                   dates: "April 2021 - February 2025",
                   bullets: [
-                    "Modernized a Department of Education governance platform for federal executives.",
+                    "Modernized a Department of Education governance platform.",
                     "Led ATO delivery, reducing approval time by 50%.",
-                    "Designed Go microservices with AWS SNS, reducing overhead by 60%.",
                   ],
                 },
                 {
@@ -457,23 +438,22 @@ function App() {
                   role: "Full-Stack Engineer",
                   dates: "February 2016 - April 2021",
                   bullets: [
-                    "Built high-traffic web applications serving thousands of NIH researchers.",
-                    "Improved database response times by 60% with data model redesign.",
-                    "Led feature releases and maintenance for legacy systems.",
+                    "Built high-traffic web applications for NIH researchers.",
+                    "Improved database response times by 60%.",
                   ],
                 },
               ].map((job) => (
-                <div key={job.company} className="card-outline p-8">
+                <div key={job.company} className="card-dark p-8">
                   <div className="flex flex-wrap items-center justify-between gap-4">
                     <div>
-                      <h3 className="text-2xl font-display text-ink">{job.company}</h3>
-                      <p className="text-sm uppercase tracking-[0.3em] text-slate">{job.role}</p>
+                      <h3 className="text-2xl font-display text-haze">{job.company}</h3>
+                      <p className="text-sm uppercase tracking-[0.3em] text-haze/60">{job.role}</p>
                     </div>
-                    <span className="rounded-full border border-ink/10 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate">
+                    <span className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-haze/70">
                       {job.dates}
                     </span>
                   </div>
-                  <ul className="mt-4 space-y-2 text-sm text-slate">
+                  <ul className="mt-4 space-y-2 text-sm text-haze/70">
                     {job.bullets.map((bullet) => (
                       <li key={bullet}>• {bullet}</li>
                     ))}
@@ -484,18 +464,16 @@ function App() {
           </div>
         </section>
 
-        <section id="education" className="py-20">
+        <section id="education" className="bg-ink py-20 text-haze">
           <div className="mx-auto max-w-6xl px-6">
             <div className="space-y-3">
-              <p className="section-kicker">Education</p>
-              <h2 className="section-title">Foundation built for scale.</h2>
+              <p className="section-kicker-light">Education</p>
+              <h2 className="section-title-light">Foundation built for scale.</h2>
             </div>
-            <div className="mt-8 card-outline p-8">
-              <h3 className="text-2xl font-display text-ink">University at Albany · SUNY</h3>
-              <p className="text-sm uppercase tracking-[0.3em] text-slate">B.S. in Computer Science</p>
-              <p className="mt-4 text-slate">
-                A rigorous foundation in software engineering, systems thinking, and human-centered computing.
-              </p>
+            <div className="mt-8 card-dark p-8">
+              <h3 className="text-2xl font-display text-haze">University at Albany · SUNY</h3>
+              <p className="text-sm uppercase tracking-[0.3em] text-haze/60">B.S. in Computer Science</p>
+              <p className="mt-4 text-haze/70">Rigorous training in software engineering and systems thinking.</p>
             </div>
           </div>
         </section>
@@ -544,8 +522,8 @@ function App() {
         </section>
       </main>
 
-      <footer className="border-t border-ink/10 bg-white/70">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6 text-xs uppercase tracking-[0.3em] text-slate">
+      <footer className="border-t border-white/10 bg-ink">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6 text-xs uppercase tracking-[0.3em] text-haze/60">
           <span>Ravi Gupta · 2026</span>
           <span>Built with React + Bun</span>
         </div>

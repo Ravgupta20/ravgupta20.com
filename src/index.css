@@ -41,6 +41,14 @@
     @apply text-xs uppercase tracking-[0.35em] text-slate font-semibold;
   }
 
+  .section-kicker-light {
+    @apply text-xs uppercase tracking-[0.35em] text-haze/70 font-semibold;
+  }
+
+  .section-title-light {
+    @apply font-display text-4xl md:text-6xl tracking-tight text-haze;
+  }
+
   .eyebrow {
     @apply inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate;
   }
@@ -51,6 +59,14 @@
 
   .card-outline {
     @apply rounded-2xl border border-ink/10 bg-white/90 shadow-ember;
+  }
+
+  .card-dark {
+    @apply rounded-2xl border border-white/10 bg-white/5 shadow-deep;
+  }
+
+  .pill-dark {
+    @apply rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-haze/70;
   }
 }
 
