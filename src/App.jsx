@@ -265,6 +265,8 @@ function App() {
           </div>
         </section>
 
+        <div className="section-divider" />
+
         <section id="manifesto" className="relative overflow-hidden bg-ink py-20 text-haze quote-glow">
           <div className="absolute inset-0 spotlight -z-10 opacity-30" />
           <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-[1fr_1.1fr]">

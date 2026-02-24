@@ -93,6 +93,12 @@
     radial-gradient(circle at 85% 0%, rgba(246, 196, 83, 0.12), transparent 50%);
 }
 
+.section-divider {
+  height: 20px;
+  background: linear-gradient(90deg, rgba(255, 77, 45, 0.15), rgba(246, 196, 83, 0.6), rgba(255, 77, 45, 0.15));
+  box-shadow: 0 0 30px rgba(246, 196, 83, 0.25);
+}
+
 .reel-section {
   position: relative;
   height: 420vh;
