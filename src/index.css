@@ -192,6 +192,18 @@
   backdrop-filter: blur(10px);
 }
 
+.reel-logo {
+  width: 58px;
+  height: auto;
+  margin-bottom: 14px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(248, 244, 238, 0.08);
+  border: 1px solid rgba(248, 244, 238, 0.2);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35));
+  opacity: 0.92;
+}
+
 .reel-slide.is-emphasis {
   border-color: rgba(255, 77, 45, 0.6);
   box-shadow: 0 28px 80px rgba(255, 77, 45, 0.25);

@@ -8,7 +8,7 @@ const REEL_SLIDES = [
   },
   {
     value: "60%",
-    label: "Less engineering overhead",
+    label: "Less engineering overhead",   
     detail: "Go microservices + automation.",
   },
   {
@@ -23,10 +23,11 @@ const REEL_SLIDES = [
   },
   {
     value: "Education",
-    label: "University at Albany · SUNY",
+    label: "University at Albany · State University of New York",
     // detail: "B.S. in Computer Science.Rigorous training in software engineering and systems thinking.",
     detail: "B.S. in Computer Science.",
     emphasis: true,
+    logo: "/ualbany_logo.png",
   },
 ];
 
@@ -235,6 +236,13 @@ function App() {
                 <h2 className="reel-title">Momentum without noise.</h2>
                 <div className="reel-carousel">
                   <div className={`reel-slide ${REEL_SLIDES[reelIndex].emphasis ? "is-emphasis" : ""}`}>
+                    {REEL_SLIDES[reelIndex].logo && (
+                      <img
+                        className="reel-logo"
+                        src={REEL_SLIDES[reelIndex].logo}
+                        alt="University at Albany logo"
+                      />
+                    )}
                     <div className="reel-stat">{REEL_SLIDES[reelIndex].value}</div>
                     <div className="reel-label">{REEL_SLIDES[reelIndex].label}</div>
                     <div className="reel-detail">{REEL_SLIDES[reelIndex].detail}</div>
