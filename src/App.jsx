@@ -265,15 +265,15 @@ function App() {
           </div>
         </section>
 
-        <section id="manifesto" className="relative overflow-hidden afterglow py-20 text-haze">
-          <div className="absolute inset-0 spotlight -z-10 opacity-60" />
+        <section id="manifesto" className="relative overflow-hidden bg-ink py-20 text-haze quote-glow">
+          <div className="absolute inset-0 spotlight -z-10 opacity-30" />
           <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-[1fr_1.1fr]">
             <div className="space-y-4">
               <p className="section-kicker-light">Guiding quote</p>
-              <h2 className="section-title-light">Pride is not the opposite of shame, but its source.</h2>
+              <h2 className="section-title-light">"Pride is not the opposite of shame, but its source."</h2>
             </div>
             <div className="space-y-6 text-lg text-haze/70">
-              <p>"Pride is not the opposite of shame, but its source. True humility is the only antidote to shame."</p>
+              <p>"True humility is the only antidote to shame."</p>
               <p className="text-sm uppercase tracking-[0.3em] text-haze/60">— Iroh</p>
             </div>
           </div>
