@@ -200,14 +200,14 @@ function App() {
           <div className="absolute inset-0 -z-20 bg-gold-glow" />
           <div className="absolute inset-0 -z-30 diagonal-grid" />
           <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-6 py-24 md:py-32">
-            <div className="eyebrow">Full-stack engineer · Community builder</div>
+            <div className="eyebrow">Full-stack engineer · Community builder · Mentor · Learner · Eternal Optimist</div>
             <div className="space-y-6">
               <h1 className="font-display text-5xl tracking-tight text-ink md:text-7xl">
                 Ravi Gupta.
                 <span className="block text-slate">Builds momentum.</span>
               </h1>
               <p className="max-w-2xl text-base uppercase tracking-[0.35em] text-slate">
-                Product engineering · AI systems · Civic tech
+                Product Engineering ·  Systems Engineering · Civic tech
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
@@ -233,7 +233,7 @@ function App() {
             <div className="reel-frame">
               <div className="reel-media" />
               <div className="reel-overlay">
-                <h2 className="reel-title">Momentum without noise.</h2>
+                <h2 className="reel-title">Always move ahead.</h2>
                 <div className="reel-carousel">
                   <div className={`reel-slide ${REEL_SLIDES[reelIndex].emphasis ? "is-emphasis" : ""}`}>
                     {REEL_SLIDES[reelIndex].logo && (
