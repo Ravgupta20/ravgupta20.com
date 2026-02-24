@@ -24,7 +24,8 @@ const REEL_SLIDES = [
   {
     value: "Education",
     label: "University at Albany · SUNY",
-    detail: "B.S. in Computer Science. Rigorous training in software engineering and systems thinking.",
+    // detail: "B.S. in Computer Science.Rigorous training in software engineering and systems thinking.",
+    detail: "B.S. in Computer Science.",
     emphasis: true,
   },
 ];

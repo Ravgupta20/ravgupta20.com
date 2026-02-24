@@ -220,6 +220,7 @@
 
 .reel-dots {
   display: flex;
+  padding-top: 50px;
   gap: 10px;
 }
 
