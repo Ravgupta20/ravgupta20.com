@@ -150,19 +150,11 @@
 .reel-overlay {
   position: relative;
   z-index: 1;
-  padding: 48px;
-  max-width: 520px;
+  padding: 44px;
+  max-width: 640px;
   transform: translateY(calc(20px - (var(--reel-progress) * 40px)));
   opacity: calc(0.7 + (var(--reel-progress) * 0.3));
   transition: transform 0.1s ease-out, opacity 0.1s ease-out;
-}
-
-.reel-eyebrow {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.45em;
-  color: rgba(248, 244, 238, 0.6);
-  margin-bottom: 16px;
 }
 
 .reel-title {
@@ -177,22 +169,8 @@
   line-height: 1.6;
 }
 
-.reel-subtitle {
-  margin-top: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.35em;
-  font-size: 0.75rem;
-  color: rgba(248, 244, 238, 0.7);
-}
-
-.reel-detail-text {
-  margin-top: 16px;
-  font-size: 0.95rem;
-  color: rgba(248, 244, 238, 0.7);
-}
-
 .reel-carousel {
-  margin-top: 24px;
+  margin-top: 28px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -202,28 +180,28 @@
   border-radius: 20px;
   border: 1px solid rgba(248, 244, 238, 0.18);
   background: rgba(8, 9, 12, 0.55);
-  padding: 18px 20px;
+  padding: 24px 26px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(10px);
 }
 
 .reel-stat {
   font-family: "Bodoni Moda", serif;
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   color: #f6c453;
 }
 
 .reel-label {
   text-transform: uppercase;
   letter-spacing: 0.35em;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: rgba(248, 244, 238, 0.7);
   margin-top: 6px;
 }
 
 .reel-detail {
   margin-top: 10px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: rgba(248, 244, 238, 0.68);
 }
 

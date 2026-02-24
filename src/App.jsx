@@ -2,6 +2,11 @@ import { useEffect, useRef, useState } from "react";
 
 const REEL_SLIDES = [
   {
+    value: "Education",
+    label: "University at Albany · SUNY",
+    detail: "B.S. in Computer Science. Rigorous training in software engineering and systems thinking.",
+  },
+  {
     value: "50%",
     label: "Faster federal approvals",
     detail: "ATO delivery without delays.",
@@ -10,11 +15,6 @@ const REEL_SLIDES = [
     value: "60%",
     label: "Less engineering overhead",
     detail: "Go microservices + automation.",
-  },
-  {
-    value: "Manifesto",
-    label: "Momentum without noise",
-    detail: "Listen deeply, prototype fast, ship with discipline.",
   },
   {
     value: "Expertise",
@@ -229,11 +229,7 @@ function App() {
             <div className="reel-frame">
               <div className="reel-media" />
               <div className="reel-overlay">
-                <div className="reel-eyebrow">Education</div>
-                <h2 className="reel-title">Foundation built for scale.</h2>
-                <p className="reel-body">University at Albany · SUNY</p>
-                <p className="reel-subtitle">B.S. in Computer Science</p>
-                <p className="reel-detail-text">Rigorous training in software engineering and systems thinking.</p>
+                <h2 className="reel-title">Momentum without noise.</h2>
                 <div className="reel-carousel">
                   <div className="reel-slide">
                     <div className="reel-stat">{REEL_SLIDES[reelIndex].value}</div>
