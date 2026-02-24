@@ -3,19 +3,34 @@ import { useEffect, useRef, useState } from "react";
 function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [reelIndex, setReelIndex] = useState(0);
   const reelSectionRef = useRef(null);
 
   const navItems = [
     { id: "home", label: "Home" },
     { id: "reel", label: "Reel" },
     { id: "manifesto", label: "Manifesto" },
-    { id: "impact", label: "Impact" },
     { id: "work", label: "Work" },
     { id: "expertise", label: "Expertise" },
     { id: "leadership", label: "Leadership" },
     { id: "experience", label: "Experience" },
     { id: "education", label: "Education" },
     { id: "contact", label: "Contact" },
+  ];
+
+  const reelSlides = [
+    {
+      value: "50%",
+      label: "Faster federal approvals",
+    },
+    {
+      value: "60%",
+      label: "Less engineering overhead",
+    },
+    {
+      value: "Thousands",
+      label: "Researchers supported",
+    },
   ];
 
   useEffect(() => {
@@ -201,12 +216,25 @@ function App() {
             <div className="reel-frame">
               <div className="reel-media" />
               <div className="reel-overlay">
-                <p className="reel-kicker">Scrolling is a zoom lens</p>
                 <h2 className="reel-title">From signal to story.</h2>
-                <p className="reel-body">
-                  Each scroll step pulls you deeper into the systems I build: calm interfaces, decisive infrastructure, and
-                  communities that feel held.
-                </p>
+                <p className="reel-body">A calm, cinematic view of outcomes that matter.</p>
+                <div className="reel-carousel">
+                  <div className="reel-slide">
+                    <div className="reel-stat">{reelSlides[reelIndex].value}</div>
+                    <div className="reel-label">{reelSlides[reelIndex].label}</div>
+                  </div>
+                  <div className="reel-dots">
+                    {reelSlides.map((slide, index) => (
+                      <button
+                        key={slide.label}
+                        type="button"
+                        className={`reel-dot ${index === reelIndex ? "is-active" : ""}`}
+                        aria-label={`Show highlight ${index + 1}`}
+                        onClick={() => setReelIndex(index)}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
             <div className="reel-hint">Scroll to zoom in</div>
@@ -229,43 +257,6 @@ function App() {
           </div>
         </section>
 
-        <section id="impact" className="bg-ink py-16 text-haze">
-          <div className="mx-auto max-w-6xl px-6">
-            <div className="flex flex-wrap items-center justify-between gap-6">
-              <div>
-                <p className="section-kicker-light">Impact reel</p>
-                <h2 className="section-title-light">Scale without drama.</h2>
-              </div>
-              <a
-                href="#contact"
-                className="rounded-full border border-white/20 bg-white/5 px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-haze/70 transition hover:border-ember hover:text-ember"
-              >
-                Build together
-              </a>
-            </div>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  value: "50%",
-                  label: "Faster federal approvals",
-                },
-                {
-                  value: "60%",
-                  label: "Less engineering overhead",
-                },
-                {
-                  value: "Thousands",
-                  label: "Researchers supported",
-                },
-              ].map((stat) => (
-                <div key={stat.value} className="card-dark p-6">
-                  <div className="text-4xl font-display text-ember">{stat.value}</div>
-                  <p className="mt-3 text-sm uppercase tracking-[0.25em] text-haze/60">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         <section id="work" className="bg-ink py-20 text-haze">
           <div className="mx-auto max-w-6xl px-6">
