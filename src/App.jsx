@@ -229,8 +229,11 @@ function App() {
             <div className="reel-frame">
               <div className="reel-media" />
               <div className="reel-overlay">
-                <h2 className="reel-title">Education</h2>
-                <p className="reel-body">University at Albany · SUNY — B.S. in Computer Science.</p>
+                <div className="reel-eyebrow">Education</div>
+                <h2 className="reel-title">Foundation built for scale.</h2>
+                <p className="reel-body">University at Albany · SUNY</p>
+                <p className="reel-subtitle">B.S. in Computer Science</p>
+                <p className="reel-detail-text">Rigorous training in software engineering and systems thinking.</p>
                 <div className="reel-carousel">
                   <div className="reel-slide">
                     <div className="reel-stat">{REEL_SLIDES[reelIndex].value}</div>
@@ -396,19 +399,6 @@ function App() {
           </div>
         </section>
 
-        <section id="education" className="bg-haze py-20 text-ink">
-          <div className="mx-auto max-w-6xl px-6">
-            <div className="space-y-3">
-              <p className="section-kicker">Education</p>
-              <h2 className="section-title">Foundation built for scale.</h2>
-            </div>
-            <div className="mt-8 card-outline p-8">
-              <h3 className="text-2xl font-display text-ink">University at Albany · SUNY</h3>
-              <p className="text-sm uppercase tracking-[0.3em] text-slate">B.S. in Computer Science</p>
-              <p className="mt-4 text-slate">Rigorous training in software engineering and systems thinking.</p>
-            </div>
-          </div>
-        </section>
 
         <section id="contact" className="relative overflow-hidden py-20">
           <div className="absolute inset-0 bg-ink" />

@@ -157,6 +157,14 @@
   transition: transform 0.1s ease-out, opacity 0.1s ease-out;
 }
 
+.reel-eyebrow {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.45em;
+  color: rgba(248, 244, 238, 0.6);
+  margin-bottom: 16px;
+}
+
 .reel-title {
   font-family: "Bodoni Moda", serif;
   font-size: clamp(2.4rem, 4vw, 3.6rem);
@@ -167,6 +175,20 @@
   color: rgba(248, 244, 238, 0.75);
   font-size: 1.05rem;
   line-height: 1.6;
+}
+
+.reel-subtitle {
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.75rem;
+  color: rgba(248, 244, 238, 0.7);
+}
+
+.reel-detail-text {
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: rgba(248, 244, 238, 0.7);
 }
 
 .reel-carousel {
