@@ -261,7 +261,6 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="reel-hint">Scroll to zoom in</div>
           </div>
         </section>
 

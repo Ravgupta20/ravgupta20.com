@@ -135,7 +135,9 @@
   overflow: hidden;
   border: 1px solid rgba(248, 244, 238, 0.15);
   box-shadow: 0 40px 120px rgba(0, 0, 0, 0.45);
-  transform: scale(calc(1 + (var(--reel-progress) * 0.35)));
+  --shrink: max(0, calc(var(--reel-progress) - 0.9));
+  transform: translateY(calc(var(--shrink) * 210px))
+    scale(calc(1 + (var(--reel-progress) * 0.35) - (var(--shrink) * 2.6)));
   transition: transform 0.1s ease-out;
 }
 
@@ -267,12 +269,6 @@
   box-shadow: 0 0 0 6px rgba(255, 77, 45, 0.15);
 }
 
-.reel-hint {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.4em;
-  color: rgba(248, 244, 238, 0.6);
-}
 
 .afterglow {
   background: linear-gradient(180deg, rgba(11, 13, 18, 0.98) 0%, rgba(11, 13, 18, 0.9) 40%, rgba(11, 13, 18, 0.75) 70%, rgba(248, 244, 238, 0.95) 100%);
