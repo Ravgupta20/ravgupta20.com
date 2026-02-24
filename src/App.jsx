@@ -2,11 +2,6 @@ import { useEffect, useRef, useState } from "react";
 
 const REEL_SLIDES = [
   {
-    value: "Education",
-    label: "University at Albany · SUNY",
-    detail: "B.S. in Computer Science. Rigorous training in software engineering and systems thinking.",
-  },
-  {
     value: "50%",
     label: "Faster federal approvals",
     detail: "ATO delivery without delays.",
@@ -25,6 +20,12 @@ const REEL_SLIDES = [
     value: "Leadership",
     label: "Community as product",
     detail: "Meetups, mentorship, inclusive growth.",
+  },
+  {
+    value: "Education",
+    label: "University at Albany · SUNY",
+    detail: "B.S. in Computer Science. Rigorous training in software engineering and systems thinking.",
+    emphasis: true,
   },
 ];
 
@@ -79,7 +80,8 @@ function App() {
       const lingerRatio = 0.55;
       const progress = Math.min(rawProgress / lingerRatio, 1);
       reelSection.style.setProperty("--reel-progress", progress.toFixed(3));
-      const nextIndex = Math.min(Math.floor(progress * REEL_SLIDES.length), REEL_SLIDES.length - 1);
+      const eased = Math.pow(progress, 1.7);
+      const nextIndex = Math.min(Math.floor(eased * REEL_SLIDES.length), REEL_SLIDES.length - 1);
       setReelIndex((current) => (current === nextIndex ? current : nextIndex));
     };
 
@@ -231,7 +233,7 @@ function App() {
               <div className="reel-overlay">
                 <h2 className="reel-title">Momentum without noise.</h2>
                 <div className="reel-carousel">
-                  <div className="reel-slide">
+                  <div className={`reel-slide ${REEL_SLIDES[reelIndex].emphasis ? "is-emphasis" : ""}`}>
                     <div className="reel-stat">{REEL_SLIDES[reelIndex].value}</div>
                     <div className="reel-label">{REEL_SLIDES[reelIndex].label}</div>
                     <div className="reel-detail">{REEL_SLIDES[reelIndex].detail}</div>
