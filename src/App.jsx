@@ -79,62 +79,84 @@ function App() {
 
   return (
     <div className="min-h-screen bg-haze text-ink">
-      <header className="sticky top-0 z-50 border-b border-ink/10 bg-white/80 backdrop-blur">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-3 font-display text-xl tracking-tight">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-ember text-white shadow-ember">
-              RG
-            </span>
+      <header
+        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+          activeSection === "reel" && !menuOpen ? "pointer-events-none opacity-0 -translate-y-4" : "opacity-100"
+        }`}
+      >
+        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+          <div className="rounded-full border border-ink/10 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-slate shadow-ember backdrop-blur">
             Ravi Gupta
           </div>
-          <div className="hidden items-center gap-6 text-sm font-semibold uppercase tracking-[0.2em] text-slate md:flex">
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={handleNavClick}
-                className={`hover:text-ember ${activeSection === item.id ? "text-ember" : ""}`}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-          <div className="flex items-center gap-3">
-            <a
-              href="#contact"
-              onClick={handleNavClick}
-              className="hidden rounded-full border border-ink/10 bg-ink px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-ember transition hover:bg-ember md:inline-flex"
-            >
-              Start a conversation
-            </a>
-            <button
-              type="button"
-              className="inline-flex items-center rounded-full border border-ink/10 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-ink md:hidden"
-              onClick={() => setMenuOpen((prev) => !prev)}
-              aria-expanded={menuOpen}
-              aria-controls="mobile-nav"
-            >
-              Menu
-            </button>
-          </div>
+          <button
+            type="button"
+            className="rounded-full border border-ink/10 bg-ink px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white shadow-ember transition hover:bg-ember"
+            onClick={() => setMenuOpen(true)}
+            aria-expanded={menuOpen}
+            aria-controls="site-menu"
+          >
+            Menu
+          </button>
         </nav>
-        {menuOpen && (
-          <div id="mobile-nav" className="border-t border-ink/10 bg-white/95 md:hidden">
-            <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-6 text-sm font-semibold uppercase tracking-[0.2em] text-slate">
-              {navItems.map((item) => (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  onClick={handleNavClick}
-                  className={`hover:text-ember ${activeSection === item.id ? "text-ember" : ""}`}
-                >
-                  {item.label}
-                </a>
-              ))}
+      </header>
+      {menuOpen && (
+        <div
+          id="site-menu"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/95 px-6 text-white"
+        >
+          <button
+            type="button"
+            className="absolute right-8 top-8 rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white"
+            onClick={() => setMenuOpen(false)}
+          >
+            Close
+          </button>
+          <div className="grid w-full max-w-4xl gap-6 md:grid-cols-2">
+            <div className="space-y-4">
+              <p className="text-xs uppercase tracking-[0.35em] text-white/60">Navigate</p>
+              <div className="flex flex-col gap-4 text-2xl font-display">
+                {navItems.map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    onClick={handleNavClick}
+                    className="transition hover:text-ember"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div className="space-y-6">
+              <div>
+                <p className="text-xs uppercase tracking-[0.35em] text-white/60">Signal</p>
+                <p className="mt-2 text-lg">Open to 2026 roles · Rockville, MD</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.35em] text-white/60">Contact</p>
+                <div className="mt-2 space-y-2 text-sm">
+                  <a href="mailto:ravgupta20@gmail.com" className="block hover:text-ember">
+                    ravgupta20@gmail.com
+                  </a>
+                  <a href="tel:+15185300153" className="block hover:text-ember">
+                    1-518-530-0153
+                  </a>
+                  <a href="https://www.linkedin.com/in/ravgupta20" target="_blank" rel="noreferrer" className="block hover:text-ember">
+                    linkedin.com/in/ravgupta20
+                  </a>
+                </div>
+              </div>
+              <a
+                href="#contact"
+                onClick={handleNavClick}
+                className="inline-flex rounded-full border border-white/20 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white transition hover:border-ember hover:text-ember"
+              >
+                Start a conversation
+              </a>
             </div>
           </div>
-        )}
-      </header>
+        </div>
+      )}
 
       <main>
         <section id="home" className="relative overflow-hidden">
