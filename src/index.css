@@ -199,6 +199,12 @@
   margin-top: 6px;
 }
 
+.reel-detail {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: rgba(248, 244, 238, 0.68);
+}
+
 .reel-dots {
   display: flex;
   gap: 10px;

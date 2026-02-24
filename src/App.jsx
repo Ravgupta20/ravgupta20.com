@@ -1,5 +1,33 @@
 import { useEffect, useRef, useState } from "react";
 
+const REEL_SLIDES = [
+  {
+    value: "50%",
+    label: "Faster federal approvals",
+    detail: "ATO delivery without delays.",
+  },
+  {
+    value: "60%",
+    label: "Less engineering overhead",
+    detail: "Go microservices + automation.",
+  },
+  {
+    value: "Manifesto",
+    label: "Momentum without noise",
+    detail: "Listen deeply, prototype fast, ship with discipline.",
+  },
+  {
+    value: "Expertise",
+    label: "AI + Product + Infra",
+    detail: "Gemini, React, Go, AWS + GCP.",
+  },
+  {
+    value: "Leadership",
+    label: "Community as product",
+    detail: "Meetups, mentorship, inclusive growth.",
+  },
+];
+
 function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,26 +39,9 @@ function App() {
     { id: "reel", label: "Reel" },
     { id: "manifesto", label: "Manifesto" },
     { id: "work", label: "Work" },
-    { id: "expertise", label: "Expertise" },
-    { id: "leadership", label: "Leadership" },
     { id: "experience", label: "Experience" },
     { id: "education", label: "Education" },
     { id: "contact", label: "Contact" },
-  ];
-
-  const reelSlides = [
-    {
-      value: "50%",
-      label: "Faster federal approvals",
-    },
-    {
-      value: "60%",
-      label: "Less engineering overhead",
-    },
-    {
-      value: "Thousands",
-      label: "Researchers supported",
-    },
   ];
 
   useEffect(() => {
@@ -68,6 +79,8 @@ function App() {
       const lingerRatio = 0.55;
       const progress = Math.min(rawProgress / lingerRatio, 1);
       reelSection.style.setProperty("--reel-progress", progress.toFixed(3));
+      const nextIndex = Math.min(Math.floor(progress * REEL_SLIDES.length), REEL_SLIDES.length - 1);
+      setReelIndex((current) => (current === nextIndex ? current : nextIndex));
     };
 
     const onScroll = () => {
@@ -220,11 +233,12 @@ function App() {
                 <p className="reel-body">A calm, cinematic view of outcomes that matter.</p>
                 <div className="reel-carousel">
                   <div className="reel-slide">
-                    <div className="reel-stat">{reelSlides[reelIndex].value}</div>
-                    <div className="reel-label">{reelSlides[reelIndex].label}</div>
+                    <div className="reel-stat">{REEL_SLIDES[reelIndex].value}</div>
+                    <div className="reel-label">{REEL_SLIDES[reelIndex].label}</div>
+                    <div className="reel-detail">{REEL_SLIDES[reelIndex].detail}</div>
                   </div>
                   <div className="reel-dots">
-                    {reelSlides.map((slide, index) => (
+                    {REEL_SLIDES.map((slide, index) => (
                       <button
                         key={slide.label}
                         type="button"
@@ -324,83 +338,6 @@ function App() {
           </div>
         </section>
 
-        <section id="expertise" className="relative overflow-hidden bg-ink py-20 text-haze">
-          <div className="absolute inset-0 diagonal-grid opacity-20" />
-          <div className="relative mx-auto max-w-6xl px-6">
-            <div className="space-y-3">
-              <p className="section-kicker-light">Expertise</p>
-              <h2 className="section-title-light">Capabilities that matter.</h2>
-            </div>
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {[
-                {
-                  title: "AI + LLM Systems",
-                  items: ["Gemini + Vertex AI", "Conversational UX"],
-                },
-                {
-                  title: "Product Engineering",
-                  items: ["React + TypeScript", "Go microservices"],
-                },
-                {
-                  title: "Infrastructure",
-                  items: ["AWS + GCP", "IaC + security"],
-                },
-                {
-                  title: "Leadership",
-                  items: ["Cross-functional alignment", "Mentorship"],
-                },
-              ].map((capability) => (
-                <div key={capability.title} className="card-dark p-6">
-                  <h3 className="text-xl font-display text-haze">{capability.title}</h3>
-                  <ul className="mt-4 space-y-2 text-sm text-haze/70">
-                    {capability.items.map((item) => (
-                      <li key={item}>• {item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="leadership" className="bg-ink py-20 text-haze">
-          <div className="mx-auto max-w-6xl px-6">
-            <div className="space-y-3">
-              <p className="section-kicker-light">Leadership</p>
-              <h2 className="section-title-light">Community is a product too.</h2>
-            </div>
-            <div className="mt-10 grid gap-8 md:grid-cols-2">
-              {[
-                {
-                  title: "MoCo Code and Coffee",
-                  role: "Lead Organizer · July 2025 - Present",
-                  points: [
-                    "Run monthly meetups for developers at every level.",
-                    "Build mentorship pathways and volunteer onboarding.",
-                  ],
-                },
-                {
-                  title: "DMV Petri Dish",
-                  role: "Community Growth Contributor · June 2025 - Present",
-                  points: [
-                    "Support grassroots innovators across the DC metro biotech ecosystem.",
-                    "Translate community ideas into research-ready programs.",
-                  ],
-                },
-              ].map((item) => (
-                <div key={item.title} className="card-dark p-8">
-                  <p className="section-kicker-light">{item.role}</p>
-                  <h3 className="mt-2 text-2xl font-display text-haze">{item.title}</h3>
-                  <ul className="mt-4 space-y-2 text-sm text-haze/70">
-                    {item.points.map((point) => (
-                      <li key={point}>• {point}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         <section id="experience" className="bg-ink py-20 text-haze">
           <div className="mx-auto max-w-6xl px-6">
