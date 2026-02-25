@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 
 const REEL_SLIDES = [
   {
-    value: "50%",
-    label: "Faster federal approvals",
-    detail: "ATO delivery without delays.",
+    value: "65%",
+    label: "Community growth",
+    detail: "MoCO Code & Coffee · 6 months",
   },
   {
     value: "60%",
@@ -14,11 +14,11 @@ const REEL_SLIDES = [
   {
     value: "Expertise",
     label: "AI + Product + Infra",
-    detail: "Gemini, React, Go, AWS + GCP.",
+    detail: "Gemini, React, Go, Python, AWS + GCP.",
   },
   {
     value: "Leadership",
-    label: "Community as product",
+    label: "Community Impact",
     detail: "Meetups, mentorship, inclusive growth.",
   },
   {
