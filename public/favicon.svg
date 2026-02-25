@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="RG badge">
+  <defs>
+    <pattern id="grid" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="rgba(248,244,238,0.18)" stroke-width="1"/>
+    </pattern>
+    <clipPath id="badge">
+      <circle cx="32" cy="32" r="30"/>
+    </clipPath>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="#0b0d12"/>
+  <g clip-path="url(#badge)">
+    <rect width="64" height="64" fill="url(#grid)"/>
+    <circle cx="46" cy="18" r="9" fill="#ff4d2d"/>
+    <circle cx="46" cy="18" r="5" fill="#f6c453"/>
+  </g>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="rgba(248,244,238,0.35)" stroke-width="1.5"/>
+</svg>
