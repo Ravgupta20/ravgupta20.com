@@ -36,6 +36,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [reelIndex, setReelIndex] = useState(0);
   const reelSectionRef = useRef(null);
+  const reelMetricsRef = useRef({ start: 0, height: 1 });
 
   const navItems = [
     { id: "home", label: "Home" },
@@ -71,12 +72,19 @@ function App() {
       return undefined;
     }
 
+    const updateReelMetrics = () => {
+      reelMetricsRef.current = {
+        start: reelSection.offsetTop,
+        height: reelSection.offsetHeight,
+      };
+    };
+
     let frame = 0;
     const updateReel = () => {
       frame = 0;
       const viewHeight = window.innerHeight || 1;
-      const start = reelSection.offsetTop;
-      const end = start + reelSection.offsetHeight - viewHeight;
+      const { start, height } = reelMetricsRef.current;
+      const end = start + height - viewHeight;
       const scrollY = window.scrollY || window.pageYOffset || 0;
       const rawProgress = Math.min(Math.max((scrollY - start) / Math.max(end - start, 1), 0), 1);
       const lingerRatio = 0.55;
@@ -94,13 +102,19 @@ function App() {
       frame = window.requestAnimationFrame(updateReel);
     };
 
+    const handleResize = () => {
+      updateReelMetrics();
+      updateReel();
+    };
+
+    updateReelMetrics();
     updateReel();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", updateReel);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", updateReel);
+      window.removeEventListener("resize", handleResize);
       if (frame) {
         window.cancelAnimationFrame(frame);
       }
